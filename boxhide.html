@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(32, 32, 32);
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            display: grid;
+            place-items: center;
+            align-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: slateblue;
+            padding: 20px;
+            border-radius: 5px;
+
+            display: flex;
+            gap: 10px;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: greenyellow;
+            color: black;
+            border-radius: 5px;
+            height: 4rem;
+            width: 4rem;
+            cursor: pointer;
+        }
+
+        .box:active {
+            background-color: rgb(208, 255, 137);
+        }
+
+        #reset {
+            background-color: tomato;
+            color: white;
+        }
+
+        #reset:active {
+            background-color: rgb(255, 127, 105);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div id="box1" class="box">Box 1</div>
+        <div id="box2" class="box">Box 2</div>
+        <div id="box3" class="box">Box 3</div>
+        <div id="box4" class="box">Box 4</div>
+        <div id="reset" class="box">Reset</div>
+        <div class="box"><a href="index.html">Back</a></div>
+    </div>
+</body>
+<script>
+    let box1 = document.getElementById('box1');
+    box1.addEventListener('click', (e) => {
+        box1.style.display = 'none'
+    })
+    let box2 = document.getElementById('box2');
+    box2.addEventListener('click', (e) => {
+        box2.style.display = 'none'
+    })
+    let box3 = document.getElementById('box3');
+    box3.addEventListener('click', (e) => {
+        box3.style.display = 'none'
+    })
+    let box4 = document.getElementById('box4');
+    box4.addEventListener('click', (e) => {
+        box4.style.display = 'none'
+    })
+    let reset = document.getElementById('reset');
+    reset.addEventListener('click', (e) => {
+        document.getElementById('box1').style.display = 'flex'
+        document.getElementById('box2').style.display = 'flex'
+        document.getElementById('box3').style.display = 'flex'
+        document.getElementById('box4').style.display = 'flex'
+
+    })
+</script>
+
+</html>
