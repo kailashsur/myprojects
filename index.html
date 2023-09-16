@@ -8,8 +8,9 @@
 <style>
     *{
         box-sizing: border-box;
-        /* padding: 0;
-        margin: 0; */
+        padding: 0;
+        margin: 0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
     a{
         text-decoration: none;
@@ -31,17 +32,19 @@
         padding:20px;
         border-radius: 5px;
         display: flex;
+        gap:20px;
         align-items: center;
         justify-content: center;
     }
     .card{
-        height: 250px;
-        width: 150px;
+        height: auto;
+        width: auto;
         background-color:azure;
         border-radius: 5px;
         padding: 10px;
         display: flex;
         flex-direction: column;
+        gap:20px;
         /* align-items: center; */
         justify-content: center;
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.177);
@@ -64,8 +67,14 @@
 
             <div id="card1" class="card">
                 <h2>Box Hide Unhide</h2>
-                <p>Lorem ipsum dolor sit amet consectetur</p>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur</p> -->
                 <button><a href="boxhide.html">View</a></button>
+            </div>
+
+            <div id="card2" class="card">
+                <h2>Random Color</h2>
+                <!-- <p>Random background color changer </p> -->
+                <button><a href="randomBackground.html">View</a></button>
             </div>
 
         </div>
