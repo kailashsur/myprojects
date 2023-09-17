@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="array.js"></script>
+    <title>Array Data Structure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: auto;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+
+        }
+
+        /* .dsaTitle{
+            height: 100vh;
+            width: 100vw;
+        } */
+
+        .container {
+            height: auto;
+            /* width: 100vw; */
+            margin-top: 3rem;
+
+
+            display: flex;
+            flex-direction: column;
+            /* flex-wrap: wrap; */
+            justify-content: center;
+            align-items: center;
+            background-color: burlywood;
+        }
+
+        .datastructure {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            /* background-color: slateblue; */
+
+        }
+
+        .array {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .index {
+            height: 3rem;
+            width: 3rem;
+            border-right: 2px solid black;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            background-color: lightcoral;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            height: 2rem;
+            width: auto;
+            border: 0;
+            border-radius: 5px;
+            padding: 1rem;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.138);
+        }
+
+        button {
+            width: auto;
+            border: 0;
+            border-radius: 5px;
+            padding: 1rem;
+            background-color: tomato;
+            color: white;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.179);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:active {
+            background-color: rgb(255, 127, 104);
+        }
+
+        .insertion {
+            background-color: gold;
+            padding: 3rem;
+
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .insertForm {
+            display: flex;
+            flex-direction: column;
+            /* flex-wrap: wrap; */
+            gap: 1rem;
+        }
+
+        .deletion {
+            background-color: rgb(0, 174, 35);
+            padding: 3rem;
+
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+
+        }
+
+        .deleteForm {
+            display: flex;
+            flex-direction: column;
+            /* flex-wrap: wrap; */
+            gap: 1rem;
+
+        }
+
+        .deleteInput {
+            display: flex;
+            flex-direction: column;
+            /* flex-wrap: wrap; */
+            gap: 1rem;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="dsaTitle">Array Data Structure And It's Algorithm</div> -->
+
+    <div class="container">
+        <!-- datastructure -->
+        <div class="datastructure">
+            <h2 class="arraySize">An Array Size of [5]</h2>
+
+            <div class="array">
+                <div id="index0" class="index" style="border-left:2px solid black"></div>
+                <div id="index1" class="index"></div>
+                <div id="index2" class="index"></div>
+                <div id="index3" class="index"></div>
+                <div id="index4" class="index"></div>
+            </div>
+        </div>
+
+        <!-- Insertion -->
+        <div class="insertion">
+            <h2 class="insertTitle">Insertion</h2>
+            <div class="insertForm">
+                <div>Enter Value - <input id="inValue" type="number" placeholder="22"></div>
+                <div>Enter Index - <input id="inIndex" type="number" placeholder="0"></div>
+            </div>
+            <button id="insertbtn" class="insertSubmit">Insert In Array</button>
+        </div>
+
+        <!-- Deletion -->
+        <div class="deletion">
+            <h2 class="deleteTitle">Deletion</h2>
+            <div class="deleteForm">
+                <div class="deleteInput">
+                    <div>Delete Data By Value</div>
+                    <div>Enter Value - <input id="deValue" type="number" name="" id="" placeholder="22"></div>
+                </div>
+                <!-- <div class="deleteInput">
+                    <div>Delete Data By Index</div>
+                    <div>Enter Index - <input id="deIndex" type="number" name="" id="" placeholder="0"></div>
+                </div> -->
+
+            </div>
+            <button id="delete" class="insertSubmit">Delete Array Data</button>
+        </div>
+
+    </div>
+
+
+    <script>
+        let index0 = document.getElementById('index0');
+        let index1 = document.getElementById('index1');
+        let index2 = document.getElementById('index2');
+        let index3 = document.getElementById('index3');
+        let index4 = document.getElementById('index4');
+
+
+
+
+        //------------------------Insertion Operation --------------------
+        let inValue = document.querySelector('#inValue');
+        let inIndex = document.querySelector('#inIndex');
+
+        let insertBtn = document.querySelector('#insertbtn');
+
+        insertBtn.addEventListener('click', function () {
+            let Index = inIndex.value;
+            let Value = inValue.value;
+
+            if (Index == '' || Index > 4) {
+                alert('Please Enter Valid Index Between 0 to 4');
+                Index = null;
+            } else {
+                // switch(Index){
+
+                // }
+
+                if (Index == 0) {
+                    index0.innerHTML = Value;
+                    inIndex.value = null;
+                    inValue.value = null;
+                }
+                if (Index == 1) {
+                    index1.innerHTML = Value;
+                    inIndex.value = null;
+                    inValue.value = null;
+                }
+                if (Index == 2) {
+                    index2.innerHTML = Value;
+                    inIndex.value = null;
+                    inValue.value = null;
+                }
+                if (Index == 3) {
+                    index3.innerHTML = Value;
+                    inIndex.value = null;
+                    inValue.value = null;
+                }
+                if (Index == 4) {
+                    index4.innerHTML = Value;
+                    inIndex.value = null;
+                    inValue.value = null;
+                }
+            }
+        })
+        //------------------------------Insertion End-------------------------------------
+
+        //------------------------------Deletion Operation-------------------------------------
+        let deValue = document.querySelector('#deValue');
+        let deIndex = document.querySelector('#deIndex');
+
+        let deleteBtn = document.querySelector('#delete');
+        deleteBtn.addEventListener('click', () => {
+            let value = deValue.value;
+            let index = deIndex.value;
+
+            if ((index > 4)) {
+                alert('Please Enter Valid Index Between 0 to 4');
+                index = null;
+                value = null;
+                deValue.value = null;
+                deIndex.value = null;
+
+            } else {
+                //by using value
+                if (value == index0.innerHTML) {
+                    alert(`${value} Deleted from Array`)
+                    index0.innerHTML = null;
+                    deValue.value = null;
+                    deIndex.value = null;
+                    return;
+                } else if (value == index1.innerHTML) {
+                    alert(`${value} Deleted from Array`)
+                    index1.innerHTML = null;
+                    deValue.value = null;
+                    deIndex.value = null;
+                    return;
+                } else if (value == index2.innerHTML) {
+                    alert(`${value} Deleted from Array`)
+                    index2.innerHTML = null;
+                    deValue.value = null;
+                    deIndex.value = null;
+                    return;
+                } else if (value == index3.innerHTML) {
+                    alert(`${value} Deleted from Array`)
+                    index3.innerHTML = null;
+                    deValue.value = null;
+                    deIndex.value = null;
+                    return;
+                } else if (value == index4.innerHTML) {
+                    alert(`${value} Deleted from Array`)
+                    index4.innerHTML = null;
+                    deValue.value = null;
+                    deIndex.value = null;
+                    return;
+                } else {
+                    alert(`${value} not matched in Array`);
+                    deValue.value = null;
+                    deIndex.value = null;
+                    return;
+                }
+
+                // delete by using Index
+                // switch(index){
+                //     case 0:
+                //     alert(`${index0.innerHTML} Deleted from Array`)
+                //     index0.innerHTML = null;
+                //     deValue.value = null;
+                //     deIndex.value = null;
+                //     break;
+
+                //     default:
+                //         alert('Please enter index')
+                // }
+
+
+
+            }
+
+            // console.log(value);
+            // console.log(index);
+            // console.log('delete button clicked');
+        })
+
+
+        function idx0(value, index0) {
+            if (value == index0.innerHTML) {
+                index0.innerHTML = null;
+                alert(`${value} Deleted from Array`)
+                deValue.value = null;
+                return;
+            } else {
+                alert(`${value} not matched in Array`);
+                deValue.value = null;
+                return;
+            }
+
+        }
+        function idxDelete(value, index) {
+            switch (value) {
+                case 0:
+
+            }
+        }
+        // console.log(deIndex);
+        // console.log(deValue);
+        // console.log(deleteBtn);
+
+    </script>
+
+</body>
+
+</html>
