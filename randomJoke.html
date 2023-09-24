@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: white;
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wraper {
+            background-color: #334155;
+            border-radius: 5px;
+            padding: 2rem;
+            margin: 2rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imoji {
+            font-size: x-large;
+        }
+
+        #joke {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        #joke-btn {
+            border: 0;
+            background-color: #eab308;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wraper">
+        <span class="imoji">&#128512;</span>
+        <p id="joke"></p>
+        <button id="joke-btn">Next Joke &#8594;</button>
+    </div>
+
+
+
+<!-- Javascript to show the joke from api -->
+    <script>
+        let jokeContainer = document.getElementById('joke');
+        let jokeBtn = document.getElementById('joke-btn');
+
+        const url = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=religious,sexist';
+
+        async function getJoke(url) {
+            try {
+                let responce = await fetch(url);
+                let data = await responce.json();
+
+                if (data.joke != undefined) {
+                    jokeContainer.innerText = `${data.joke}`
+                    // console.log(data.joke)
+                } else {
+                    jokeContainer.innerHTML = 'Joke Loading Faild'
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getJoke(url)
+
+        jokeBtn.addEventListener('click', () => {
+            getJoke(url);
+        })
+
+    </script>
+</body>
+
+</html>
